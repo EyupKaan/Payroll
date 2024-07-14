@@ -1,4 +1,4 @@
-package org.eyupkaan.payrollnonrest;
+package org.eyupkaan;
 
 import org.springframework.web.bind.annotation.*;
 

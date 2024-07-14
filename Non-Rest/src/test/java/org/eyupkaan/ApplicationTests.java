@@ -1,4 +1,4 @@
-package org.eyupkaan.payrollnonrest;
+package org.eyupkaan;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

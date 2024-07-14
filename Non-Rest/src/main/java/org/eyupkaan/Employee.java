@@ -1,4 +1,4 @@
-package org.eyupkaan.payrollnonrest;
+package org.eyupkaan;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
