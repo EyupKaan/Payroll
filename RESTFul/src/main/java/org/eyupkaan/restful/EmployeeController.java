@@ -2,6 +2,8 @@ package org.eyupkaan.restful;
 
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,8 +33,12 @@ public class EmployeeController {
 
     }
     @PostMapping("/employees")
-    public Employee addEmployee(@RequestBody Employee employee){
-        return repository.save(employee);
+    public ResponseEntity<?> addEmployee(@RequestBody Employee employee){
+        EntityModel<Employee> entityModel = assembler.toModel(employee);
+
+        return ResponseEntity
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+                .body(entityModel);
     }
     @GetMapping("/employees/{id}")
     public EntityModel<Employee> getById(@PathVariable Long id){
