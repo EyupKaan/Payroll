@@ -1,9 +1,12 @@
 package org.eyupkaan.restful;
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.jayway.jsonpath.internal.function.sequence.Last;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
@@ -11,14 +14,16 @@ public class Employee {
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String role;
 
     public Employee() {
     }
 
-    public Employee(String name, String role) {
-        this.name = name;
+    public Employee(String firstName, String lastName,String role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.role = role;
     }
 
@@ -31,11 +36,13 @@ public class Employee {
     }
 
     public String getName() {
-        return name;
+        return firstName + " " + lastName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        String[] fullName = name.split(" ");
+        this.firstName = fullName[0];
+        this.lastName = fullName[1];
     }
 
     public String getRole() {
@@ -46,25 +53,41 @@ public class Employee {
         this.role = role;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return Objects.equals(getId(), employee.getId()) && Objects.equals(getName(), employee.getName()) && Objects.equals(getRole(), employee.getRole());
+        return Objects.equals(getId(), employee.getId()) && Objects.equals(getFirstName(), employee.getFirstName()) && Objects.equals(getLastName(), employee.getLastName()) && Objects.equals(getRole(), employee.getRole());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getRole());
+        return Objects.hash(getId(), getFirstName(), getLastName(), getRole());
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", role='" + role + '\'' +
                 '}';
     }
-
 }
