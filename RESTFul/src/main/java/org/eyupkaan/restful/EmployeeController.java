@@ -60,7 +60,7 @@ public class EmployeeController {
                     return repository.save(employee);
                 });
 
-        EntityModel entityModel = assembler.toModel(updatedModel);
+        EntityModel<Employee> entityModel = assembler.toModel(updatedModel);
 
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())

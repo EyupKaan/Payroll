@@ -9,10 +9,16 @@ import org.springframework.context.annotation.Configuration;
 public class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
     @Bean
-    CommandLineRunner initDatabase(EmployeeRepository repository){
+    CommandLineRunner initDatabase(EmployeeRepository employeeRepository, OrderRepository orderRepository){
         return args -> {
-            log.info("Preloading " + repository.save(new Employee("Eyüp Kaan","Özteriş", "RESTFul Java Spring Developer")));
-            log.info("Preloading " + repository.save(new Employee("Anıl","Düz", "RESTFul .NET Core Developer")));
+            employeeRepository.save(new Employee("Eyüp Kaan", "Özteriş", "Java Developer"));
+            employeeRepository.save(new Employee("Anıl", "Duz", ".NET Developer"));
+
+            orderRepository.save(new Order("Macbook Pro", Status.COMPLETED));
+            orderRepository.save(new Order("Asus Zenbook", Status.IN_PROGRESS));
+
+            employeeRepository.findAll().forEach(e -> log.info("Preloaded " + e));
+            orderRepository.findAll().forEach(o -> log.info("Preloaded " + o));
         };
     }
 }

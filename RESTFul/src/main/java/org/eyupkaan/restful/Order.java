@@ -16,7 +16,7 @@ public class Order {
     private String description;
     private Status status;
 
-    Order(){};
+    public Order(){}
 
     public Order(String description, Status status) {
         this.description = description;
