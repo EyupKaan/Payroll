@@ -38,6 +38,17 @@ public class OrderController {
         return CollectionModel.of(orders,
                 linkTo(methodOn(OrderController.class).allOrders()).withSelfRel());
     }
+    @PostMapping()
+    public ResponseEntity<EntityModel<Order>> addOrder(@RequestBody Order order){
+        order.setStatus(Status.IN_PROGRESS);
+        Order newOrder = repository.save(order);
+
+        return ResponseEntity
+                .created(
+                        linkTo(methodOn(OrderController.class).getOrderById(newOrder.getId())).toUri()
+                )
+                .body(assembler.toModel(newOrder));
+    }
     @GetMapping("/{id}")
     public EntityModel<Order> getOrderById(@PathVariable Long id){
         Order order = repository.findById(id)
