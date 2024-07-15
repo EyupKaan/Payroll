@@ -17,6 +17,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequestMapping("/employees")
 public class EmployeeController {
     private final EmployeeRepository repository;
     private final EmployeeModelAssembler assembler;
@@ -25,7 +26,7 @@ public class EmployeeController {
         this.repository = repository;
         this.assembler = assembler;
     }
-    @GetMapping("/employees")
+    @GetMapping()
     public CollectionModel<EntityModel<Employee>> allEmployee(){
 
         List<EntityModel<Employee>> employees = repository.findAll().stream()
@@ -36,7 +37,7 @@ public class EmployeeController {
                 linkTo(methodOn(EmployeeController.class).allEmployee()).withSelfRel());
 
     }
-    @PostMapping("/employees")
+    @PostMapping()
     public ResponseEntity<?> addEmployee(@RequestBody Employee employee){
         EntityModel<Employee> entityModel = assembler.toModel(repository.save(employee));
 
@@ -44,7 +45,7 @@ public class EmployeeController {
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
     }
-    @GetMapping("/employees/{id}")
+    @GetMapping("/{id}")
     public EntityModel<Employee> getById(@PathVariable Long id){
         Employee employee = repository.findById(id).orElseThrow(
                 () -> new EmployeeNotFoundException(id));
@@ -52,7 +53,7 @@ public class EmployeeController {
         return assembler.toModel(employee);
 
     }
-    @PutMapping("/employees/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> editEmployee(@RequestBody Employee employee,@PathVariable Long id){
         Employee updatedModel = repository.findById(id)
                 .map(updated -> {
@@ -70,7 +71,7 @@ public class EmployeeController {
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
     }
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable Long id){
         repository.deleteById(id);
         return ResponseEntity.noContent().build();

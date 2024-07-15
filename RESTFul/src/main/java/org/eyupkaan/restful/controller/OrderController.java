@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
+@RequestMapping("/orders")
 public class OrderController {
     OrderRepository repository;
     OrderModelAssembler assembler;
@@ -28,7 +29,7 @@ public class OrderController {
         this.repository = repository;
         this.assembler = assembler;
     }
-    @GetMapping("/orders")
+    @GetMapping()
     public CollectionModel<EntityModel<Order>> allOrders(){
         List<EntityModel<Order>> orders = repository.findAll().stream()
                 .map(assembler::toModel)
@@ -37,14 +38,14 @@ public class OrderController {
         return CollectionModel.of(orders,
                 linkTo(methodOn(OrderController.class).allOrders()).withSelfRel());
     }
-    @GetMapping("/orders/{id}")
+    @GetMapping("/{id}")
     public EntityModel<Order> getOrderById(@PathVariable Long id){
         Order order = repository.findById(id)
                 .orElseThrow(() -> new OrderNotFoundException(id));
 
         return assembler.toModel(order);
     }
-    @DeleteMapping("/orders/{id}/cancel")
+    @DeleteMapping("/{id}/cancel")
     public ResponseEntity<?> cancel(@PathVariable Long id) {
         Order order = repository.findById(id)
                 .orElseThrow(() -> new OrderNotFoundException(id));
@@ -61,7 +62,8 @@ public class OrderController {
                         .withTitle("Method not allowed")
                         .withDetail("You can not cancel an order that is in the " + order.getStatus() + " status"));
     }
-    @PutMapping("/orders/{id}/complete")
+
+    @PutMapping("/{id}/complete")
     public ResponseEntity<?> complete(@PathVariable Long id) {
         Order order = repository.findById(id)
                 .orElseThrow(() -> new OrderNotFoundException(id));
