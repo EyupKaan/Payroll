@@ -1,4 +1,9 @@
-package org.eyupkaan.restful;
+package org.eyupkaan.restful.config;
+import org.eyupkaan.restful.model.Employee;
+import org.eyupkaan.restful.model.Order;
+import org.eyupkaan.restful.model.Status;
+import org.eyupkaan.restful.repository.EmployeeRepository;
+import org.eyupkaan.restful.repository.OrderRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5662d383-3bc9-4640-b542-d0552a3aa9f1" name="Changes" comment="Order completed with its assembler and controller.">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/OrderModelAssembler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/LoadDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/LoadDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/EmployeeModelAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/model/EmployeeModelAssembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/EmployeeNotFoundAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/exception/EmployeeNotFoundAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/EmployeeNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/exception/EmployeeNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/repository/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/LoadDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/config/LoadDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/OrderModelAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/model/OrderModelAssembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/OrderNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/exception/OrderNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/RESTFul/src/main/java/org/eyupkaan/restful/model/Status.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +169,7 @@
       <workItem from="1720967459406" duration="2482000" />
       <workItem from="1720969961307" duration="14439000" />
       <workItem from="1721027907043" duration="13694000" />
-      <workItem from="1721056993313" duration="410000" />
+      <workItem from="1721056993313" duration="2693000" />
     </task>
     <task id="LOCAL-00001" summary="RESTFul created">
       <option name="closed" value="true" />
@@ -228,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720993058154</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Order completed with its assembler and controller.">
+      <option name="closed" value="true" />
+      <created>1721057623436</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721057623436</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,4 +1,4 @@
-package org.eyupkaan.restful;
+package org.eyupkaan.restful.exception;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

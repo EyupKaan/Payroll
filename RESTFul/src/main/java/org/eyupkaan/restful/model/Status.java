@@ -1,4 +1,4 @@
-package org.eyupkaan.restful;
+package org.eyupkaan.restful.model;
 
 public enum Status {
     IN_PROGRESS,

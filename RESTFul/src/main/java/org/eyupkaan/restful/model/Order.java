@@ -1,4 +1,4 @@
-package org.eyupkaan.restful;
+package org.eyupkaan.restful.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

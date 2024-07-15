@@ -1,4 +1,4 @@
-package org.eyupkaan.restful;
+package org.eyupkaan.restful.exception;
 
 public class EmployeeNotFoundException extends RuntimeException {
     public EmployeeNotFoundException(Long id){

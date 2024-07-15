@@ -1,12 +1,9 @@
-package org.eyupkaan.restful;
+package org.eyupkaan.restful.model;
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.jayway.jsonpath.internal.function.sequence.Last;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
